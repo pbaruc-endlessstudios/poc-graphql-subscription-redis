@@ -30,18 +30,23 @@ const typeDefs = gql`
 `;
 
 // ==== PubSub =========================================================================================================
-const options = {
-    host: 'my-first-redis.sxha1z.0001.use1.cache.amazonaws.com',
-    port: 6379
-}
-const pubsub = new RedisPubSub({
-    publisher: new Redis(options),
-    subscriber: new Redis(options)
-});
 
-// const pubsub = new PubSub();
+// =======================================
+// # UN-COMMENT to use Redis Broker.
+// const options = {
+//     host: 'my-first-redis.sxha1z.0001.use1.cache.amazonaws.com',
+//     port: 6379
+// }
+// const pubsub = new RedisPubSub({
+//     publisher: new Redis(options),
+//     subscriber: new Redis(options)
+// });
+// ========================================
 
-// adding some stuff
+// =======================================
+// # UN-COMMENT NO Redis broker.
+const pubsub = new PubSub();
+// =======================================
 
 // ==== Resolvers ======================================================================================================
 const resolvers = {
