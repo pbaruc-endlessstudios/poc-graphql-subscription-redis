@@ -33,19 +33,19 @@ const typeDefs = gql`
 
 // =======================================
 // # UN-COMMENT to use Redis Broker.
-// const options = {
-//     host: 'my-first-redis.sxha1z.0001.use1.cache.amazonaws.com',
-//     port: 6379
-// }
-// const pubsub = new RedisPubSub({
-//     publisher: new Redis(options),
-//     subscriber: new Redis(options)
-// });
+const options = {
+    host: 'my-first-redis.sxha1z.0001.use1.cache.amazonaws.com',
+    port: 6379
+}
+const pubsub = new RedisPubSub({
+    publisher: new Redis(options),
+    subscriber: new Redis(options)
+});
 // ========================================
 
 // =======================================
 // # UN-COMMENT NO Redis broker.
-const pubsub = new PubSub();
+// const pubsub = new PubSub();
 // =======================================
 
 // ==== Resolvers ======================================================================================================
@@ -96,9 +96,7 @@ const resolvers = {
     const server = new ApolloServer({
         schema,
         plugins: [
-            ApolloServerPluginLandingPageGraphQLPlayground({
-                // options
-            })
+            ApolloServerPluginLandingPageGraphQLPlayground({})
         ]
     });
 
